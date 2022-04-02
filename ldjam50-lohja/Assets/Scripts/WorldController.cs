@@ -5,16 +5,23 @@ using UnityEngine.Tilemaps;
 
 public class WorldController : MonoBehaviour
 {
-    public World worldData;
+    public World world;
+
+    public Tilemap groundMap;
+    public Tilemap terrainMap;
+    public Tilemap objectMap;
+    public Tilemap fireMap;
 
     private Timer fireTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        worldData.Init();
+        world.InitMaps(groundMap, terrainMap, objectMap, fireMap);
+        world.InitFires();
         fireTimer = gameObject.AddComponent<Timer>();
         fireTimer.duration = 0.5f;
+        fireTimer.StartTimer();
     }
 
     // Update is called once per frame
@@ -22,7 +29,7 @@ public class WorldController : MonoBehaviour
     {
         if (fireTimer.isFinished)
         {
-            worldData.TickFire();
+            world.TickFire();
         }
     }
 }
