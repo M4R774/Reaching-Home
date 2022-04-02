@@ -11,23 +11,16 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D myRigidBody;
 
+    private Vector2 movementDirection;
+
     public void Start()
     {
         myRigidBody = this.GetComponent<Rigidbody2D>();
         fireNozzle.SetActive(false);
     }
 
-    public void MovePlayer(InputAction.CallbackContext context)
+    private void FixedUpdate()
     {
-        Vector2 movementDirection = context.ReadValue<Vector2>();
-        movementDirection.Normalize();
-        
-        if ( movementDirection.magnitude == 0.0f ) {
-            GetComponent<Animator>().SetBool("Walking", false);
-        } else {
-            GetComponent<Animator>().SetBool("Walking", true);
-        }
-
         myRigidBody.velocity = speed * movementDirection;
 
         Vector2 moveDirection = myRigidBody.velocity;
@@ -35,6 +28,18 @@ public class PlayerMovement : MonoBehaviour
         {
             float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg - 90;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+    }
+
+    public void MovePlayer(InputAction.CallbackContext context)
+    {
+        movementDirection = context.ReadValue<Vector2>();
+        movementDirection.Normalize();
+        
+        if ( movementDirection.magnitude == 0.0f ) {
+            GetComponent<Animator>().SetBool("Walking", false);
+        } else {
+            GetComponent<Animator>().SetBool("Walking", true);
         }
     }
 
