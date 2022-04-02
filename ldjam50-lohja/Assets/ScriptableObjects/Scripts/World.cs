@@ -8,6 +8,7 @@ public class World : ScriptableObject
 {
     public int groundWidth;
     public int groundHeight;
+    public Vector3Int groundOffSet;
 
     public Tilemap groundMap;
     public Tilemap terrainMap;
@@ -19,7 +20,6 @@ public class World : ScriptableObject
     public TileBase fireTileBig;
 
     public Fire[,] fires;
-    public List<Fire> activeFires;
 
     public void InitMaps(Tilemap groundMap, Tilemap terrainMap, Tilemap objectMap, Tilemap fireMap)
     {
@@ -30,21 +30,21 @@ public class World : ScriptableObject
 
         groundWidth = groundMap.size.x;
         groundHeight = groundMap.size.y;
+        groundOffSet = new Vector3Int((int)groundMap.localBounds.min.x, (int)groundMap.localBounds.min.y, 0);
     }
 
     public void InitFires()
     {
         fires = new Fire[groundHeight, groundWidth];
-        activeFires = new List<Fire>();
         Fire.SetFireTiles(fireTileSmall, fireTileMedium, fireTileBig);
         for (int y = 0; y < groundHeight; y++)
         {
             for (int x = 0; x < groundWidth; x++)
             {
                 Vector3Int position = new Vector3Int(x, y, 0);
-                if (groundMap.HasTile(position))
+                if (groundMap.HasTile(position + groundOffSet))
                 {
-                    fires[y, x] = new Fire(fires, position, fireMap);
+                    fires[y, x] = new Fire(fires, position, groundOffSet, fireMap);
                 }
             }
         }
@@ -59,20 +59,20 @@ public class World : ScriptableObject
                 }
             }
         }
+
+        fires[20, 20].StartFire();
     }
 
     public void StartFire(Vector3Int position)
     {
         Fire fire = fires[position.y, position.x];
         fire.StartFire();
-        activeFires.Add(fire);
     }
 
     public void StopFire(Vector3Int position)
     {
         Fire fire = fires[position.y, position.x];
         fire.StopFire();
-        activeFires.Remove(fire);
     }
 
     public void TickFire()
@@ -84,7 +84,8 @@ public class World : ScriptableObject
                 Fire fire = fires[y, x];
                 if (fire != null)
                 {
- //                   fires[y, x].StartFire();
+                    fires[y, x].Tick();
+                    fires[y, x].PrintNeighbours();
                 }
             }
         }

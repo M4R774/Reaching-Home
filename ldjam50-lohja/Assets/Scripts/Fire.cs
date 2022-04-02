@@ -7,19 +7,26 @@ public class Fire
     public Fire[,] fires;
     private Tilemap fireMap;
     private Vector3Int position;
+    private Vector3Int offset;
 
-    public int intensity;
+    public float intensity;
+    public float buildupSpeed = 0.05f;
     public List<Fire> neighbours;
 
     private static TileBase fireTileSmall;
     private static TileBase fireTileMedium;
     private static TileBase fireTileBig;
 
-    public Fire(Fire[,] fires, Vector3Int position, Tilemap fireMap)
+    public bool active;
+
+    public Fire(Fire[,] fires, Vector3Int position, Vector3Int offset, Tilemap fireMap)
     {
         this.fires = fires;
         this.position = position;
         this.fireMap = fireMap;
+        this.offset = offset;
+        intensity = 0;
+        active = false;
     }
 
     public static void SetFireTiles(TileBase small, TileBase medium, TileBase big)
@@ -29,14 +36,76 @@ public class Fire
         fireTileBig = big;
     }
 
+    public void Tick()
+    {
+        if (active)
+        {
+            intensity = Mathf.Min(intensity + buildupSpeed, 1);
+            UpdateTile();
+            UpdateNeighbours();
+        }
+    }
+
+    private void UpdateTile()
+    {
+        TileBase newTile = fireTileSmall;
+
+        if (intensity > 0.7f)
+        {
+            newTile = fireTileBig;
+        }
+        else if (intensity > 0.4f)
+        {
+            newTile = fireTileMedium;
+        }
+
+        fireMap.SetTile(position + offset, newTile);
+    }
+
+    private void UpdateNeighbours()
+    {
+        int neighboursOnFire = 0;
+        foreach (Fire fire in neighbours)
+        {
+            if (fire.active)
+            {
+                neighboursOnFire++;
+            }
+        }
+
+        bool allNeighboursOnFire = neighboursOnFire == neighbours.Count;
+
+        if (!allNeighboursOnFire)
+        {
+            bool setOnFire = SetNeighbourOnFire();
+
+            if (setOnFire)
+            {
+                int neighbourIndex = Random.Range(0, neighbours.Count);
+
+                neighbours[neighbourIndex].StartFire();
+            }
+        }
+    }
+
+    private bool SetNeighbourOnFire()
+    {
+        float fire = Random.Range(intensity * 5, 10);
+
+        return fire > 9.5f;
+    }
+
     public void StartFire()
     {
-        fireMap.SetTile(position, fireTileSmall);
+        fireMap.SetTile(position + offset, fireTileSmall);
+        active = true;
     }
 
     public void StopFire()
     {
-        fireMap.SetTile(position, null);
+        fireMap.SetTile(position + offset, null);
+        active = false;
+        intensity = 0;
     }
 
     public void FindNeighbours()
