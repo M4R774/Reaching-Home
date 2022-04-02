@@ -30,6 +30,7 @@ public class WorldController : MonoBehaviour
         if (fireTimer.isFinished)
         {
             world.TickFire();
+            fireTimer.StopTimer();
         }
     }
 }

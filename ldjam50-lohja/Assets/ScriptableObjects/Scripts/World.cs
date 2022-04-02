@@ -14,7 +14,9 @@ public class World : ScriptableObject
     public Tilemap objectMap;
     public Tilemap fireMap;
 
-    public TileBase fireTile;
+    public TileBase fireTileSmall;
+    public TileBase fireTileMedium;
+    public TileBase fireTileBig;
 
     public Fire[,] fires;
     public List<Fire> activeFires;
@@ -33,6 +35,8 @@ public class World : ScriptableObject
     public void InitFires()
     {
         fires = new Fire[groundHeight, groundWidth];
+        activeFires = new List<Fire>();
+        Fire.SetFireTiles(fireTileSmall, fireTileMedium, fireTileBig);
         for (int y = 0; y < groundHeight; y++)
         {
             for (int x = 0; x < groundWidth; x++)
@@ -40,7 +44,7 @@ public class World : ScriptableObject
                 Vector3Int position = new Vector3Int(x, y, 0);
                 if (groundMap.HasTile(position))
                 {
-                    fires[y, x] = new Fire(fires, position);
+                    fires[y, x] = new Fire(fires, position, fireMap);
                 }
             }
         }
@@ -57,6 +61,20 @@ public class World : ScriptableObject
         }
     }
 
+    public void StartFire(Vector3Int position)
+    {
+        Fire fire = fires[position.y, position.x];
+        fire.StartFire();
+        activeFires.Add(fire);
+    }
+
+    public void StopFire(Vector3Int position)
+    {
+        Fire fire = fires[position.y, position.x];
+        fire.StopFire();
+        activeFires.Remove(fire);
+    }
+
     public void TickFire()
     {
         for (int y = 0; y < fires.GetLength(0); y++)
@@ -66,7 +84,7 @@ public class World : ScriptableObject
                 Fire fire = fires[y, x];
                 if (fire != null)
                 {
-                    fires[y, x].PrintNeighbours();
+ //                   fires[y, x].StartFire();
                 }
             }
         }

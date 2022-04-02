@@ -1,18 +1,42 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Fire
 {
     public Fire[,] fires;
+    private Tilemap fireMap;
     private Vector3Int position;
 
     public int intensity;
     public List<Fire> neighbours;
 
-    public Fire(Fire[,] fires, Vector3Int position)
+    private static TileBase fireTileSmall;
+    private static TileBase fireTileMedium;
+    private static TileBase fireTileBig;
+
+    public Fire(Fire[,] fires, Vector3Int position, Tilemap fireMap)
     {
         this.fires = fires;
         this.position = position;
+        this.fireMap = fireMap;
+    }
+
+    public static void SetFireTiles(TileBase small, TileBase medium, TileBase big)
+    {
+        fireTileSmall = small;
+        fireTileMedium = medium;
+        fireTileBig = big;
+    }
+
+    public void StartFire()
+    {
+        fireMap.SetTile(position, fireTileSmall);
+    }
+
+    public void StopFire()
+    {
+        fireMap.SetTile(position, null);
     }
 
     public void FindNeighbours()

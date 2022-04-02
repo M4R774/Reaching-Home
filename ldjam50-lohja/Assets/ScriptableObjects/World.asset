@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7baa70163dcade1458e40ca7556037ec, type: 3}
   m_Name: World
   m_EditorClassIdentifier: 
-  groundWidth: 0
-  groundHeight: 0
+  groundWidth: 59
+  groundHeight: 56
   groundMap: {fileID: 0}
   terrainMap: {fileID: 0}
   objectMap: {fileID: 0}
   fireMap: {fileID: 0}
-  fireTile: {fileID: 0}
+  fireTileSmall: {fileID: 11400000, guid: 66b6e7072409831419c096822780d30b, type: 2}
+  fireTileMedium: {fileID: 11400000, guid: 66b6e7072409831419c096822780d30b, type: 2}
+  fireTileBig: {fileID: 11400000, guid: 66b6e7072409831419c096822780d30b, type: 2}

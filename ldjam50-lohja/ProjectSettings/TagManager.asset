@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 1292026229
+    locked: 0
+  - name: Walls
+    uniqueID: 1214697501
+    locked: 0
+  - name: Objects
+    uniqueID: 3096000329
+    locked: 0
+  - name: Fire
+    uniqueID: 2113787717
+    locked: 0
+  - name: Player
+    uniqueID: 641565499
+    locked: 0
