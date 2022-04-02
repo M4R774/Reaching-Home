@@ -104,5 +104,7 @@ public class World : ScriptableObject
                 }
             }
         }
+
+        return firesCollided;
     }
 }
