@@ -112,11 +112,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df224a192d760ac44a35349cd8e3b8f4, type: 3}
+--- !u!1 &8169575608106992060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5094705472289212687, guid: df224a192d760ac44a35349cd8e3b8f4, type: 3}
+  m_PrefabInstance: {fileID: 4022891053699844275}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5995173818745426211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7270794186896136592, guid: df224a192d760ac44a35349cd8e3b8f4, type: 3}
   m_PrefabInstance: {fileID: 4022891053699844275}
   m_PrefabAsset: {fileID: 0}
+--- !u!19719996 &3141043318202491694
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8169575608106992060}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1001 &4842333922604592666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47834,7 +47855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1046183357838158614, guid: df224a192d760ac44a35349cd8e3b8f4, type: 3}
       propertyPath: m_AnimatedTiles.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1046183357838158614, guid: df224a192d760ac44a35349cd8e3b8f4, type: 3}
       propertyPath: m_TileAssetArray.Array.size
@@ -47959,6 +47980,10 @@ PrefabInstance:
     - target: {fileID: 1046183357838158614, guid: df224a192d760ac44a35349cd8e3b8f4, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[0].m_RefCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1046183357838158614, guid: df224a192d760ac44a35349cd8e3b8f4, type: 3}
+      propertyPath: m_Tiles.Array.data[0].second.m_AllTileFlags
+      value: 1073741824
       objectReference: {fileID: 0}
     - target: {fileID: 1046183357838158614, guid: df224a192d760ac44a35349cd8e3b8f4, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_IsLooping

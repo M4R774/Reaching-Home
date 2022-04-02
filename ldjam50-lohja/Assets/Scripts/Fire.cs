@@ -101,6 +101,18 @@ public class Fire
         active = true;
     }
 
+    public void Extinguish(float force)
+    {
+        if (active)
+        {
+            intensity -= force;
+            if (intensity <= 0)
+            {
+                StopFire();
+            }
+        }
+    }
+
     public void StopFire()
     {
         fireMap.SetTile(position + offset, null);
