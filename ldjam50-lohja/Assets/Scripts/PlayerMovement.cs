@@ -18,5 +18,11 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 movementDirection = context.ReadValue<Vector2>();
         myRigidBody.velocity = speed * movementDirection;
+        Vector2 moveDirection = myRigidBody.velocity;
+        if (moveDirection != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg - 90;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
     }
 }
