@@ -24,7 +24,7 @@ public class FireLightning : MonoBehaviour
                     continue;
                 }
                 Vector3 firePosition = world.activeFires[i].GetWorldPosition();
-                Collider2D[] collisions = Physics2D.OverlapCircleAll(firePosition, 2.8f);
+                Collider2D[] collisions = Physics2D.OverlapCircleAll(firePosition, 2.5f);
                 int firesInRange = 0;
                 foreach (Collider2D collision in collisions)
                 {
@@ -38,6 +38,8 @@ public class FireLightning : MonoBehaviour
                 {
                     GameObject newFireLight = Instantiate(FireLight, transform);
                     newFireLight.transform.position = world.activeFires[i].GetWorldPosition();
+                    newFireLight.GetComponent<SelfDesctruct>().player = player;
+                    newFireLight.GetComponent<SelfDesctruct>().fire = world.activeFires[i];
                 }
                 yield return new WaitForSeconds(.0012f); // 0.032 = 30fps
             }
