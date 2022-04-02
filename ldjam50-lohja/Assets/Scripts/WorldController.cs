@@ -15,7 +15,7 @@ public class WorldController : MonoBehaviour
     private Timer fireTimer;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         world.InitMaps(groundMap, terrainMap, objectMap, fireMap);
         world.InitFires();
