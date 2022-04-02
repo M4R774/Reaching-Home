@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Task : MonoBehaviour, ITask
 {
-    public ScriptableObject taskList;
+    public TaskList taskList;
+
+    public void Start()
+    {
+        taskList.tasks.Add(this.gameObject);
+    }
 
     public float GetPosition()
     {
