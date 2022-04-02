@@ -13,21 +13,30 @@ public class FireLightning : MonoBehaviour
         StartCoroutine(UpdateFireLights());
     }
 
-    // Update is called once per frame
     IEnumerator UpdateFireLights()
     {
         /*
         while (true)
         {
-            foreach (Fire fire in world.activeFires)
+            for (int i = 0; i < world.activeFires.Count; i++)
             {
-                Vector3 firePosition = new Vector3();
+                Vector3 firePosition = world.activeFires[i].GetWorldPosition();
                 Collider2D[] collisions = Physics2D.OverlapCircleAll(firePosition, 3);
+                int firesInRange = 0;
                 foreach (Collider2D collision in collisions)
                 {
-
+                    if (collision.gameObject.tag == "FireLight")
+                    {
+                        firesInRange++;
+                        break;
+                    }
                 }
-                yield return new WaitForSeconds(.032f); // 0.032 = 30fps
+                if (firesInRange < 1)
+                {
+                    GameObject newFireLight = Instantiate(FireLight, transform);
+                    newFireLight.transform.position = world.activeFires[i].GetWorldPosition();
+                }
+                yield return new WaitForSeconds(.012f); // 0.032 = 30fps
             }
         }*/
         yield return null;

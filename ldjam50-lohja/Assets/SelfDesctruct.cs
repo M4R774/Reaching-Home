@@ -7,6 +7,6 @@ public class SelfDesctruct : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(this, 1f);
+        Destroy(gameObject, 2f);
     }
 }

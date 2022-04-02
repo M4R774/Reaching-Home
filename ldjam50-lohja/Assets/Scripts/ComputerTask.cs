@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComputerTask : Task, ITask
+public class ComputerTask : MonoBehaviour, ITask
 {
 
     bool healthy = true;
