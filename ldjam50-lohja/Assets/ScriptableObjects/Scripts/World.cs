@@ -20,6 +20,7 @@ public class World : ScriptableObject
     public TileBase fireTileBig;
 
     public Fire[,] fires;
+    public List<Fire> activeFires;
 
     public void InitMaps(Tilemap groundMap, Tilemap terrainMap, Tilemap objectMap, Tilemap fireMap)
     {
@@ -36,6 +37,7 @@ public class World : ScriptableObject
     public void InitFires()
     {
         fires = new Fire[groundHeight, groundWidth];
+        activeFires = new List<Fire>();
         Fire.SetFireTiles(fireTileSmall, fireTileMedium, fireTileBig);
         for (int y = 0; y < groundHeight; y++)
         {
@@ -44,7 +46,7 @@ public class World : ScriptableObject
                 Vector3Int position = new Vector3Int(x, y, 0);
                 if (groundMap.HasTile(position + groundOffSet))
                 {
-                    fires[y, x] = new Fire(fires, position, groundOffSet, fireMap);
+                    fires[y, x] = new Fire(this, position, groundOffSet, fireMap);
                 }
             }
         }

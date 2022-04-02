@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class Fire
 {
+    public World world;
     public Fire[,] fires;
     private Tilemap fireMap;
     private Vector3Int position;
@@ -19,9 +20,10 @@ public class Fire
 
     public bool active;
 
-    public Fire(Fire[,] fires, Vector3Int position, Vector3Int offset, Tilemap fireMap)
+    public Fire(World world, Vector3Int position, Vector3Int offset, Tilemap fireMap)
     {
-        this.fires = fires;
+        this.world = world;
+        this.fires = world.fires;
         this.position = position;
         this.fireMap = fireMap;
         this.offset = offset;
@@ -99,6 +101,10 @@ public class Fire
     {
         fireMap.SetTile(position + offset, fireTileSmall);
         active = true;
+        if (!world.activeFires.Contains(this))
+        {
+            world.activeFires.Add(this);
+        }
     }
 
     public void Extinguish(float force)
@@ -118,6 +124,8 @@ public class Fire
         fireMap.SetTile(position + offset, null);
         active = false;
         intensity = 0;
+
+        world.activeFires.Remove(this);
     }
 
     public void FindNeighbours()
