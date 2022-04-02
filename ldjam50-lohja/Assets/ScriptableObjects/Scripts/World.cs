@@ -95,12 +95,12 @@ public class World : ScriptableObject
     public List<Fire> GetAllFiresWithinBounds(Bounds bounds)
     {
         List<Fire> firesCollided = new List<Fire>();
-        for (int y = Mathf.RoundToInt(bounds.min.y); y < Mathf.RoundToInt(bounds.max.y); y++)
+        for (int y = Mathf.RoundToInt(bounds.min.y) - groundOffSet.y; y < Mathf.RoundToInt(bounds.max.y) - groundOffSet.y; y++)
         {
-            for (int x = Mathf.RoundToInt(bounds.min.x); x < Mathf.RoundToInt(bounds.max.x); x++)
+            for (int x = Mathf.RoundToInt(bounds.min.x) - groundOffSet.x; x < Mathf.RoundToInt(bounds.max.x) - groundOffSet.x; x++)
             {
                 Fire fire = fires[y, x];
-                if (fire != null)
+                if (fire != null && fire.active)
                 {
                     firesCollided.Add(fire);
                 }
