@@ -12,6 +12,7 @@ public class FireNozzle : MonoBehaviour
 
     private List<Fire> collidedFires;
     private Timer extinguishTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,16 @@ public class FireNozzle : MonoBehaviour
         extinguishTimer = gameObject.AddComponent<Timer>();
         extinguishTimer.duration = 0.5f;
         extinguishTimer.StartTimer();
+    }
+
+    private void OnEnable()
+    {
+        GetComponent<ParticleSystem>().Play();
+    }
+
+    private void OnDisable()
+    {
+        GetComponent<ParticleSystem>().Pause();
     }
 
     // Update is called once per frame

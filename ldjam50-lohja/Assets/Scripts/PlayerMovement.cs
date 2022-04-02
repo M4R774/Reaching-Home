@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject fireNozzle;
+
     public float speed;
 
     private Rigidbody2D myRigidBody;
@@ -12,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public void Start()
     {
         myRigidBody = this.GetComponent<Rigidbody2D>();
+        fireNozzle.SetActive(false);
     }
 
     public void MovePlayer(InputAction.CallbackContext context)
@@ -24,5 +27,11 @@ public class PlayerMovement : MonoBehaviour
             float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg - 90;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+    }
+
+    public void ToggleNozzle(InputAction.CallbackContext context)
+    {
+        bool on = context.ReadValue<float>() != 0;
+        fireNozzle.SetActive(on);
     }
 }

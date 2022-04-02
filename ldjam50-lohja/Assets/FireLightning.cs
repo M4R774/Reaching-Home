@@ -16,6 +16,7 @@ public class FireLightning : MonoBehaviour
     // Update is called once per frame
     IEnumerator UpdateFireLights()
     {
+        /*
         while (true)
         {
             foreach (Fire fire in world.activeFires)
@@ -28,6 +29,7 @@ public class FireLightning : MonoBehaviour
                 }
                 yield return new WaitForSeconds(.032f); // 0.032 = 30fps
             }
-        }
+        }*/
+        yield return null;
     }
 }
