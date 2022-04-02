@@ -19,8 +19,12 @@ public class FireLightning : MonoBehaviour
         {
             for (int i = 0; i < world.activeFires.Count; i++)
             {
+                if (Vector3.Distance(player.transform.position, world.activeFires[i].GetWorldPosition()) > 15)
+                {
+                    continue;
+                }
                 Vector3 firePosition = world.activeFires[i].GetWorldPosition();
-                Collider2D[] collisions = Physics2D.OverlapCircleAll(firePosition, 3);
+                Collider2D[] collisions = Physics2D.OverlapCircleAll(firePosition, 2.8f);
                 int firesInRange = 0;
                 foreach (Collider2D collision in collisions)
                 {
@@ -35,8 +39,9 @@ public class FireLightning : MonoBehaviour
                     GameObject newFireLight = Instantiate(FireLight, transform);
                     newFireLight.transform.position = world.activeFires[i].GetWorldPosition();
                 }
-                yield return new WaitForSeconds(.016f); // 0.032f = 30fps
+                yield return new WaitForSeconds(.0012f); // 0.032 = 30fps
             }
+            yield return new WaitForSeconds(.0012f); // 0.032 = 30fps
         }
     }
 }
