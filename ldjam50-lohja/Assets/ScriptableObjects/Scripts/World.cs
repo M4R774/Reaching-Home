@@ -89,4 +89,20 @@ public class World : ScriptableObject
             }
         }
     }
+
+    public List<Fire> GetAllFiresWithinBounds(Bounds bounds)
+    {
+        List<Fire> firesCollided = new List<Fire>();
+        for (int y = Mathf.RoundToInt(bounds.min.y); y < Mathf.RoundToInt(bounds.max.y); y++)
+        {
+            for (int x = Mathf.RoundToInt(bounds.min.x); x < Mathf.RoundToInt(bounds.max.x); x++)
+            {
+                Fire fire = fires[y, x];
+                if (fire != null)
+                {
+                    firesCollided.Add(fire);
+                }
+            }
+        }
+    }
 }

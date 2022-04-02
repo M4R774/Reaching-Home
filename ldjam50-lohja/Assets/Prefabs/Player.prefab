@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8728907555657125289}
-  - component: {fileID: 7358479869465126209}
   - component: {fileID: 3561672243528998473}
+  - component: {fileID: 774359406576309365}
   m_Layer: 0
   m_Name: Fire Nozzle
   m_TagString: Untagged
@@ -32,34 +32,6 @@ Transform:
   m_Father: {fileID: 4903992952784978921}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &7358479869465126209
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2331267651039501811}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0}
-      - {x: 1, y: 2}
-      - {x: -1, y: 2}
 --- !u!114 &3561672243528998473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +44,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114f47f499dcafc4c841e7bb35b46795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &774359406576309365
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2331267651039501811}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &3832976942080020226
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,19 +153,7 @@ MonoBehaviour:
     m_ActionId: e00613c0-cca5-4933-aba4-ffc2959d573c
     m_ActionName: Movement/Left-Right[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7177722242893960041}
-        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
-        m_MethodName: PlayerInteract
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 30d74de5-1f90-4741-af08-3c089c1286ff
     m_ActionName: Player Movement/Interaction[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
