@@ -7,12 +7,15 @@ public class WorldController : MonoBehaviour
 {
     public World world;
 
+    public float eventTickDuration = 10.0f;
+
     public Tilemap groundMap;
     public Tilemap terrainMap;
     public Tilemap objectMap;
     public Tilemap fireMap;
 
     private Timer fireTimer;
+    private Timer eventTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,10 @@ public class WorldController : MonoBehaviour
         fireTimer = gameObject.AddComponent<Timer>();
         fireTimer.duration = 0.5f;
         fireTimer.StartTimer();
+
+        eventTimer = gameObject.AddComponent<Timer>();
+        eventTimer.duration = eventTickDuration;
+        eventTimer.StartTimer();
     }
 
     // Update is called once per frame
@@ -32,5 +39,16 @@ public class WorldController : MonoBehaviour
             world.TickFire();
             fireTimer.StartTimer();
         }
+
+        if (eventTimer.isFinished)
+        {
+            TickEvents();
+            eventTimer.StartTimer();
+        }
+    }
+
+    void TickEvents()
+    {
+        world.StartFireAtRandomLocation();
     }
 }
