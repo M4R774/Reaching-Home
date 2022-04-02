@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
   m_Name: Computer_Error_Right
   m_EditorClassIdentifier: 
-  m_AnimatedSprites: []
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  m_AnimatedSprites:
+  - {fileID: 8211910139989968831, guid: e7644a4a78e39d247a8ef008cc8dd453, type: 3}
+  - {fileID: 2462338089714442372, guid: e7644a4a78e39d247a8ef008cc8dd453, type: 3}
+  - {fileID: 9210832875005354098, guid: e7644a4a78e39d247a8ef008cc8dd453, type: 3}
+  - {fileID: 7851412487623275802, guid: e7644a4a78e39d247a8ef008cc8dd453, type: 3}
+  m_MinSpeed: 3
+  m_MaxSpeed: 3
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
-  m_TileColliderType: 0
+  m_TileColliderType: 1
