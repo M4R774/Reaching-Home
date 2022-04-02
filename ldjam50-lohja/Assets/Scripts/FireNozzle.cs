@@ -43,20 +43,23 @@ public class FireNozzle : MonoBehaviour
     {
         collidedFires = world.GetAllFiresWithinBounds(collider.bounds);
 
-        Debug.Log(collidedFires.Count);
+        if (collidedFires.Count > 0)
+        {
+            Debug.Log(collidedFires[0].GetWorldPosition());
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         collidedFires = world.GetAllFiresWithinBounds(collider.bounds);
-
-        Debug.Log(collidedFires.Count);
+        if (collidedFires.Count > 0)
+        {
+            Debug.Log(collidedFires[0].GetWorldPosition().ToString());
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         collidedFires = world.GetAllFiresWithinBounds(collider.bounds);
-
-        Debug.Log(collidedFires.Count);
     }
 }

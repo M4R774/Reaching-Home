@@ -162,4 +162,14 @@ public class Fire
     {
         return x < fires.GetLength(1) && x >= 0 && y < fires.GetLength(0) && y >= 0;
     }
+
+    public Vector3Int GetTilemapPosition()
+    {
+        return position + offset;
+    }
+
+    public Vector3 GetWorldPosition()
+    {
+        return fireMap.CellToWorld(GetTilemapPosition());
+    }
 }
