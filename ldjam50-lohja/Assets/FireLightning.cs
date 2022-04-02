@@ -15,7 +15,6 @@ public class FireLightning : MonoBehaviour
 
     IEnumerator UpdateFireLights()
     {
-        /*
         while (true)
         {
             for (int i = 0; i < world.activeFires.Count; i++)
@@ -36,9 +35,8 @@ public class FireLightning : MonoBehaviour
                     GameObject newFireLight = Instantiate(FireLight, transform);
                     newFireLight.transform.position = world.activeFires[i].GetWorldPosition();
                 }
-                yield return new WaitForSeconds(.012f); // 0.032 = 30fps
+                yield return new WaitForSeconds(.016f); // 0.032f = 30fps
             }
-        }*/
-        yield return null;
+        }
     }
 }
