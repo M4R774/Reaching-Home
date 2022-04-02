@@ -10,13 +10,13 @@ public class ComputerTask : Task, ITask
     private void Break() 
     {
         healthy = false;
-        // Do the necessary sprite change
+        this.GetComponent<Animator>().SetTrigger("ChaosBreaks");
     }
 
     private void Fix() 
     {
         healthy = true;
-        // Do the necessary sprite change
+        this.GetComponent<Animator>().SetTrigger("PlayerFixes");
     }
 
     public bool IsBroken() 
@@ -39,6 +39,7 @@ public class ComputerTask : Task, ITask
     // and is called only by the player
     public void Interact() 
     {
+        Debug.Log("Computer clicked!");
         Fix();
     }
 

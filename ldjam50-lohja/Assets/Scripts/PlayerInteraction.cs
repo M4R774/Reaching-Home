@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -19,7 +20,8 @@ public class PlayerInteraction : MonoBehaviour
         collidersNearby.Remove(other);
     }
 
-    public void PlayerInteract() {
+    public void PlayerInteract(InputAction.CallbackContext context) {
+        Debug.Log("Interaction attempt!0");
         if ( !(collidersNearby.Count == 0) ) {
             GetNearestCollider().gameObject.GetComponent<ITask>().Interact();
         }

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: c7bbbe61f23489e4ab1bb47cd6823cd8
+=======
+guid: c8d33c4297dbaaf4386d95e302dcbb1f
+>>>>>>> stash
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

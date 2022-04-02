@@ -154,9 +154,25 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e00613c0-cca5-4933-aba4-ffc2959d573c
     m_ActionName: Movement/Left-Right[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7177722242893960041}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: PlayerInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 30d74de5-1f90-4741-af08-3c089c1286ff
+    m_ActionName: Player Movement/Interaction[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
-  m_DefaultActionMap: Movement
+  m_DefaultActionMap: Player Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!212 &-3595689601226423482

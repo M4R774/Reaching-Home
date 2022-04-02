@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34c2ac2fa8633a4bb69b3d17401c45c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskList: {fileID: 11400000, guid: 4f369fba515488d4ea13e3523ebe1a56, type: 2}
 --- !u!95 &2577336128145276826
 Animator:
   serializedVersion: 3
