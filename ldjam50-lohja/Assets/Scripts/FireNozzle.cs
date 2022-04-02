@@ -15,7 +15,7 @@ public class FireNozzle : MonoBehaviour
     private AudioSource audioSource;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         collider = GetComponent<Collider2D>();
         extinguishTimer = gameObject.AddComponent<Timer>();
