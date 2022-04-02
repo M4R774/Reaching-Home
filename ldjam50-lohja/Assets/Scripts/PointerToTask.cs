@@ -16,7 +16,7 @@ public class PointerToTask : MonoBehaviour
     public float b = .5f;
     public int resolution = 1000;
 
-    Vector2[] taskPointerArrowPointLocations;
+    Vector2[] taskPointerArrowPointLocations = null;
 
 
     private void Start()
