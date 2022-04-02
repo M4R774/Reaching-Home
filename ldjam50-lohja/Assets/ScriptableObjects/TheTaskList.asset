@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 519e873a3ab296445afdce56feaa23b9, type: 3}
   m_Name: TheTaskList
   m_EditorClassIdentifier: 
-  tasks: []
+  tasks:
+  - {fileID: 0}
+  - {fileID: 0}

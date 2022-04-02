@@ -8,15 +8,21 @@ using UnityEngine;
 public class PointerToTask : MonoBehaviour
 {
     public TaskList taskList;
-
+    LineRenderer lr;
 
     public float a = .5f;
     public float b = .5f;
     public int resolution = 1000;
 
+
+    private void Start()
+    {
+        lr = GetComponent<LineRenderer>();
+    }
+
     void FixedUpdate()
     {
-        DrawDebugEllipse();
+        //DrawDebugEllipse();
 
         int counter = 0;
         foreach (GameObject task in taskList.tasks)
@@ -24,17 +30,15 @@ public class PointerToTask : MonoBehaviour
             DrawDebugLineToTask(task, counter);
             DrawTaskArrow();
 
-
-            counter++;
+            counter+=2;
         }
     }
 
     private void DrawDebugLineToTask(GameObject task, int counter)
     {
-        LineRenderer lr = GetComponent<LineRenderer>();
-        lr.positionCount = 2;
-        lr.SetPosition(0, this.transform.position);
-        lr.SetPosition(1, task.transform.position);
+        lr.positionCount = taskList.tasks.Count * 2;
+        lr.SetPosition(counter, this.transform.position);
+        lr.SetPosition(counter+1, task.transform.position);
     }
 
     private void DrawDebugEllipse()
