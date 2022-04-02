@@ -13,7 +13,7 @@ public class SelfDesctruct : MonoBehaviour
     void Start()
     {
         light2d = gameObject.GetComponent<Light2D>();
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 3.5f);
     }
 
     private void FixedUpdate()

@@ -14,12 +14,16 @@ public class WorldController : MonoBehaviour
     public Tilemap objectMap;
     public Tilemap fireMap;
 
+    public List<AudioClip> textToSpeechClips;
+
     private Timer fireTimer;
     private Timer eventTimer;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Awake()
     {
+        audioSource = gameObject.GetComponent<AudioSource>();
         world.InitMaps(groundMap, terrainMap, objectMap, fireMap);
         world.InitFires();
         fireTimer = gameObject.AddComponent<Timer>();
@@ -50,5 +54,7 @@ public class WorldController : MonoBehaviour
     void TickEvents()
     {
         world.StartFireAtRandomLocation();
+        audioSource.clip = textToSpeechClips[0];
+        audioSource.Play();
     }
 }

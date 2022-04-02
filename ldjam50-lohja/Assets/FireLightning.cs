@@ -37,7 +37,7 @@ public class FireLightning : MonoBehaviour
                 if (firesInRange < 1)
                 {
                     GameObject newFireLight = Instantiate(FireLight, transform);
-                    newFireLight.transform.position = world.activeFires[i].GetWorldPosition();
+                    newFireLight.transform.position = world.activeFires[i].GetWorldPosition() + new Vector3(.5f, .5f, 0);
                     newFireLight.GetComponent<SelfDesctruct>().player = player;
                     newFireLight.GetComponent<SelfDesctruct>().fire = world.activeFires[i];
                     newFireLight.GetComponent<SelfDesctruct>().originalPosition = newFireLight.transform.position;

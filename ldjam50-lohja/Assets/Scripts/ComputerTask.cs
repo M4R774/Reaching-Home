@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComputerTask : MonoBehaviour, ITask
+public class ComputerTask : Task
 {
 
     bool healthy = true;
@@ -24,12 +24,12 @@ public class ComputerTask : MonoBehaviour, ITask
         return healthy;
     }
 
-    public Vector3 GetPosition() 
+    new public Vector3 GetPosition() 
     {
         return transform.position;
     }
 
-    public float GetUrgencyLevel()
+    new public float GetUrgencyLevel()
     {
         throw new System.NotImplementedException();
     }
@@ -37,7 +37,7 @@ public class ComputerTask : MonoBehaviour, ITask
 
     // This interaction changes the sprite from 'broken' to 'healthy'
     // and is called only by the player
-    public void Interact() 
+    new public void Interact() 
     {
         Debug.Log("Computer clicked!");
         Fix();
@@ -45,7 +45,7 @@ public class ComputerTask : MonoBehaviour, ITask
 
     // This interaction changes the sprite from 'healthy' to 'broken'
     // and is called only by the game controller
-    public void ChaosInteract() 
+    new public void ChaosInteract() 
     {
         Break();
     }
