@@ -11,7 +11,7 @@ public class Task : MonoBehaviour, ITask
         taskList.tasks.Add(this.gameObject);
     }
 
-    public float GetPosition()
+    public Vector3 GetPosition()
     {
         throw new System.NotImplementedException();
     }
@@ -20,4 +20,15 @@ public class Task : MonoBehaviour, ITask
     {
         throw new System.NotImplementedException();
     }
+
+    public void Interact()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void ChaosInteract()
+    {
+        throw new System.NotImplementedException();
+    }
+
 }

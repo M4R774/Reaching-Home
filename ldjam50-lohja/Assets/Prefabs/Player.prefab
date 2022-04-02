@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 6563429661586522450}
   - component: {fileID: 2836288405713284038}
   - component: {fileID: 7177722242893960041}
+  - component: {fileID: -9171328911401628919}
+  - component: {fileID: 5992872615601466066}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -184,6 +186,8 @@ MonoBehaviour:
   taskList: {fileID: 11400000, guid: 4f369fba515488d4ea13e3523ebe1a56, type: 2}
 --- !u!120 &2836288405713284038
 LineRenderer:
+--- !u!58 &-9171328911401628919
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -281,6 +285,15 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!114 &7177722242893960041
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.42
+--- !u!114 &5992872615601466066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

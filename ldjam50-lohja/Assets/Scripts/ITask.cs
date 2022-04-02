@@ -5,5 +5,9 @@ using UnityEngine;
 public interface ITask
 {
     public float GetUrgencyLevel();
-    public float GetPosition();
+    public Vector3 GetPosition();
+
+    public void Interact();
+
+    public void ChaosInteract();
 }
