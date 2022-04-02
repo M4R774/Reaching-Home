@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundWidth: 59
   groundHeight: 56
-  groundOffSet: {x: 0, y: 0, z: 0}
+  groundOffSet: {x: -25, y: -9, z: 0}
   groundMap: {fileID: 0}
   terrainMap: {fileID: 0}
   objectMap: {fileID: 0}
   fireMap: {fileID: 0}
-  fireTileSmall: {fileID: 11400000, guid: 8fe27662b3fdfaf4a8157875cf400a02, type: 2}
-  fireTileMedium: {fileID: 11400000, guid: 8fe27662b3fdfaf4a8157875cf400a02, type: 2}
+  fireTileSmall: {fileID: 11400000, guid: cda33b64a7c533148bab9d7a882c5fc7, type: 2}
+  fireTileMedium: {fileID: 11400000, guid: 12d0b266d3d367f49bfe3f4978117ca3, type: 2}
   fireTileBig: {fileID: 11400000, guid: 8fe27662b3fdfaf4a8157875cf400a02, type: 2}

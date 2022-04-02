@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Fire
+  m_Name: Fire Small
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 2470610006226865726, guid: 52b3df5f54f1bd94f92baaa6cfd266b4, type: 3}
-  - {fileID: 1283900835436708603, guid: 52b3df5f54f1bd94f92baaa6cfd266b4, type: 3}
-  - {fileID: -9222432631511411735, guid: 52b3df5f54f1bd94f92baaa6cfd266b4, type: 3}
+  - {fileID: 7544104373468627174, guid: 260c3724dbd9fe840a21b96f3100d32d, type: 3}
+  - {fileID: -2342497758479037053, guid: 260c3724dbd9fe840a21b96f3100d32d, type: 3}
+  - {fileID: -1757941407505134431, guid: 260c3724dbd9fe840a21b96f3100d32d, type: 3}
   m_MinSpeed: 5
   m_MaxSpeed: 5
   m_AnimationStartTime: 0
