@@ -40,6 +40,7 @@ public class FireLightning : MonoBehaviour
                     newFireLight.transform.position = world.activeFires[i].GetWorldPosition();
                     newFireLight.GetComponent<SelfDesctruct>().player = player;
                     newFireLight.GetComponent<SelfDesctruct>().fire = world.activeFires[i];
+                    newFireLight.GetComponent<SelfDesctruct>().originalPosition = newFireLight.transform.position;
                 }
                 yield return new WaitForSeconds(.0012f); // 0.032 = 30fps
             }
