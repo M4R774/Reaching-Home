@@ -16,7 +16,7 @@ public class PointerToTask : MonoBehaviour
     public float b = .5f;
     public int resolution = 1000;
 
-    Vector2[] taskPointerArrowPointLocations = null;
+    Vector2[] taskPointerArrowPointLocations;
 
 
     private void Start()
@@ -40,11 +40,14 @@ public class PointerToTask : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        foreach (Vector2 intersectionPoint in taskPointerArrowPointLocations)
+        if (taskPointerArrowPointLocations != null && taskPointerArrowPointLocations.Length > 0)
         {
-            // Draw a yellow sphere at the transform's position
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawSphere(new Vector3(intersectionPoint.x, intersectionPoint.y, 0), .1f);
+            foreach (Vector2 intersectionPoint in taskPointerArrowPointLocations)
+            {
+                // Draw a yellow sphere at the transform's position
+                Gizmos.color = Color.magenta;
+                Gizmos.DrawSphere(new Vector3(intersectionPoint.x, intersectionPoint.y, 0), .1f);
+            }
         }
     }
 
