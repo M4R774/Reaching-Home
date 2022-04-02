@@ -85,7 +85,6 @@ public class World : ScriptableObject
                 if (fire != null)
                 {
                     fires[y, x].Tick();
-                    fires[y, x].PrintNeighbours();
                 }
             }
         }
