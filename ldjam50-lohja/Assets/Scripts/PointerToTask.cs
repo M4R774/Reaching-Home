@@ -10,7 +10,8 @@ public class PointerToTask : MonoBehaviour
     public TaskList taskList;
     LineRenderer lr;
 
-    public GameObject[] arrows;
+    public GameObject arrowPrefab;
+    public List<GameObject> arrows;
 
     public float a = .5f;
     public float b = .5f;
@@ -26,15 +27,29 @@ public class PointerToTask : MonoBehaviour
 
     void FixedUpdate()
     {
+        // DrawDebugLinesAndEllipse();
+
+        foreach (GameObject arrow in arrows)
+        {
+            Destroy(arrow);
+        }
+        arrows.Clear();
+
+        foreach (GameObject task in taskList.tasks)
+        {
+            DrawTaskArrow(task);
+        }
+    }
+
+    private void DrawDebugLinesAndEllipse()
+    {
         DrawDebugEllipse();
 
         int counter = 0;
         foreach (GameObject task in taskList.tasks)
         {
             DrawDebugLineToTask(task, counter);
-            DrawTaskArrow(task);
-
-            counter+=2;
+            counter += 2;
         }
     }
 
@@ -77,6 +92,23 @@ public class PointerToTask : MonoBehaviour
         Vector2 rectSize = new Vector2(a*2, b*2);
         Rect rect = new Rect(rectPosition, rectSize);
         taskPointerArrowPointLocations = CalculateIntersectionPoint(rect, pt1, pt2, true);
+        if (taskPointerArrowPointLocations.Length > 0)
+        {
+            InstantiateTaskArrow(task, taskPointerArrowPointLocations[0]);
+        }
+    }
+
+    private void InstantiateTaskArrow(GameObject task, Vector2 arrowLocation)
+    {
+        Vector3 spawnLocation = new Vector3(arrowLocation.x, arrowLocation.y, 0);
+        GameObject arrow = Instantiate(arrowPrefab, this.transform);
+        arrow.transform.position = spawnLocation;
+        arrows.Add(arrow);
+
+
+        float angle = Mathf.Atan2(task.transform.position.y - arrow.transform.position.y, task.transform.position.x - arrow.transform.position.x) * Mathf.Rad2Deg - 90;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        arrow.transform.rotation = targetRotation; // Quaternion.RotateTowards(arrow.transform.rotation, targetRotation, 1 * Time.deltaTime);
     }
 
     private Vector2[] CalculateIntersectionPoint(Rect rect, Vector2 pt1, Vector2 pt2, bool segment_only)

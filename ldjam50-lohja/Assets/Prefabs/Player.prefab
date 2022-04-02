@@ -325,8 +325,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskList: {fileID: 11400000, guid: 4f369fba515488d4ea13e3523ebe1a56, type: 2}
-  a: 0.5
-  b: 0.5
+  arrowPrefab: {fileID: 3367730227849903619, guid: da3994d5c9ef66a489864d2fb2fb42c6, type: 3}
+  arrows: []
+  a: 3
+  b: 2
   resolution: 32
 --- !u!1 &7935792470404382252
 GameObject:
