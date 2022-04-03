@@ -9,9 +9,6 @@ public class Door : Task
     public bool opened = false;
     public bool processing = false;
 
-    private void Awake() {
-        Close();
-    }
     private void Open()
     {
         opened = true;
@@ -23,6 +20,14 @@ public class Door : Task
         opened = false;
         this.GetComponent<Animator>().SetTrigger("DoorClose");
     }
+
+    private void ToggleHitbox() {
+        if (opened) {
+            this.transform.Find("Hitbox").GetComponent<BoxCollider2D>().enabled = false;
+        } else {
+            this.transform.Find("Hitbox").GetComponent<BoxCollider2D>().enabled = true;
+        }
+    }
     override public void Interact()
     {
        if (opened) {
@@ -30,6 +35,7 @@ public class Door : Task
        } else {
            Open();
        }
+       ToggleHitbox();
     }
 
 
