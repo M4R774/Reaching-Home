@@ -10,6 +10,7 @@ public class CountdownTimer : MonoBehaviour
     public float remainingTime = 42f;
     public Text countdownText;
     public World world;
+    public GameObject computerExplanationText;
 
     private int oldHealthyEngineCount = 6;
 
@@ -22,12 +23,37 @@ public class CountdownTimer : MonoBehaviour
         if (remainingTime <= 0)
         {
             DisplayTime(0f);
-            SceneManager.LoadScene(2);
+            countdownText.color = Color.red;
+            if(AllComputersAreHealthy())
+            {
+                SceneManager.LoadScene(2);
+            }
+            else
+            {
+                computerExplanationText.SetActive(true);
+            }
+            
         }
         else
         {
             DisplayTime(remainingTime);
         }
+    }
+
+    private bool AllComputersAreHealthy()
+    {
+        foreach(ComputerTask computer in world.computers)
+        {
+            if(computer.healthy)
+            {
+                continue;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void checkIfNumberOfWorkingEnginesHasChangedAndChangeETAAccordingly()
