@@ -30,6 +30,14 @@ public class World : ScriptableObject
 
     public List<ComputerTask> computers;
 
+    public float computerDamagePerTick = 0.5f;
+    public float engineDamagePerTick = 1.0f;
+    public float fireDamagePerTick = 0.01f;
+
+    public float maxDamage = 150.0f;
+
+    public float damage = 0;
+
     public void InitMaps(Tilemap groundMap, Tilemap terrainMap, Tilemap objectMap, Tilemap fireMap)
     {
         this.groundMap = groundMap;
@@ -71,6 +79,35 @@ public class World : ScriptableObject
                 }
             }
         }
+    }
+
+    public void TickDamage()
+    {
+        float damageAdd = 0;
+
+        foreach(ComputerTask computer in computers)
+        {
+            if (!computer.healthy)
+            {
+                damageAdd += computerDamagePerTick;
+            }
+        }
+        foreach (EngineTask engine in engines)
+        {
+            if (!engine.healthy)
+            {
+                damageAdd += engineDamagePerTick;
+            }
+        }
+        foreach (Fire fire in activeFires)
+        {
+            if (fire.active)
+            {
+                damageAdd += fireDamagePerTick;
+            }
+        }
+
+        damage += damageAdd;
     }
 
     public void InitEngines() {
