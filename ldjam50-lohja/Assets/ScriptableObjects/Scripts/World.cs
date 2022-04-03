@@ -26,7 +26,7 @@ public class World : ScriptableObject
     public List<Fire> allFires;
     public List<Fire> activeFires;
 
-    public List<EngineTask> engines;
+    public List<EngineTask> engines = new List<EngineTask>();
 
     public List<ComputerTask> computers;
 
