@@ -14,9 +14,11 @@ public class Fire
     public float buildupSpeed = 0.05f;
     public List<Fire> neighbours;
 
-    private static TileBase fireTileSmall;
-    private static TileBase fireTileMedium;
-    private static TileBase fireTileBig;
+    private static List<TileBase> fireTileSmall;
+    private static List<TileBase> fireTileMedium;
+    private static List<TileBase> fireTileBig;
+
+    private int tileIndex;
 
     public bool active;
 
@@ -31,7 +33,7 @@ public class Fire
         active = false;
     }
 
-    public static void SetFireTiles(TileBase small, TileBase medium, TileBase big)
+    public static void SetFireTiles(List<TileBase> small, List<TileBase> medium, List<TileBase> big)
     {
         fireTileSmall = small;
         fireTileMedium = medium;
@@ -50,15 +52,15 @@ public class Fire
 
     private void UpdateTile()
     {
-        TileBase newTile = fireTileSmall;
+        TileBase newTile = fireTileSmall[tileIndex];
 
         if (intensity > 0.7f)
         {
-            newTile = fireTileBig;
+            newTile = fireTileBig[tileIndex];
         }
         else if (intensity > 0.4f)
         {
-            newTile = fireTileMedium;
+            newTile = fireTileMedium[tileIndex];
         }
 
         fireMap.SetTile(position + offset, newTile);
@@ -99,7 +101,8 @@ public class Fire
 
     public void StartFire()
     {
-        fireMap.SetTile(position + offset, fireTileSmall);
+        tileIndex = Random.Range(0, fireTileSmall.Count);
+        fireMap.SetTile(position + offset, fireTileSmall[tileIndex]);
         active = true;
         if (!world.activeFires.Contains(this))
         {
