@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComputerTask : Task
+public class EngineTask : Task
 {
     private void Break() 
     {
