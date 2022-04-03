@@ -36,6 +36,10 @@ public class PlayerInteraction : MonoBehaviour
         float minDistance = float.MaxValue;
         
         foreach ( Collider2D collider in collidersNearby ) {
+            if ( collider == null ) {
+                // Check if we have exited the collider before acting
+                continue;
+            }
             Transform collTransform = collider.GetComponent<Transform>();
             float distance = Vector3.Distance(transform.position, collTransform.position);
             if ( distance < minDistance ) {

@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   remainingTime: 642
   countdownText: {fileID: 1123622585}
+  world: {fileID: 11400000, guid: f8dd103f962130848b800e51922c4147, type: 2}
 --- !u!1 &3535206340251989480
 GameObject:
   m_ObjectHideFlags: 0
