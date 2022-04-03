@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class TaskList : ScriptableObject
 {
-    private List<GameObject> tasks;
+    private List<GameObject> tasks = new List<GameObject>();
 
     public List<GameObject> GetTasks()
     {
