@@ -8,7 +8,7 @@ public abstract class Task : MonoBehaviour
     public bool healthy = true;
     public bool interactable = true;
 
-    public void Start()
+    public void Awake()
     {
         taskList.AddTask(this.gameObject);
     }

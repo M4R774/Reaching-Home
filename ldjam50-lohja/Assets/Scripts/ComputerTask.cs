@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class ComputerTask : Task
 {
+    public World world;
+
+    public void Start()
+    {
+        world.computers.Add(this);
+    }
+    
     private void Break() 
     {
         healthy = false;

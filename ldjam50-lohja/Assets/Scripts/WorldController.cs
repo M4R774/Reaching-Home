@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEditor;
 
 public class WorldController : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class WorldController : MonoBehaviour
         audioSource = gameObject.GetComponent<AudioSource>();
         world.InitMaps(groundMap, terrainMap, objectMap, fireMap);
         world.InitFires();
+        world.InitEngines();
+        world.InitComputers();
         fireTimer = gameObject.AddComponent<Timer>();
         fireTimer.duration = 0.5f;
         fireTimer.StartTimer();
@@ -51,6 +54,7 @@ public class WorldController : MonoBehaviour
 
         if (eventTimer.isFinished)
         {
+            Debug.Log("event timer is finished");
             TickEvents();
             eventTimer.StartTimer();
         }
@@ -59,21 +63,57 @@ public class WorldController : MonoBehaviour
     void TickEvents()
     {
         int lottery = Random.Range(1, 3);
-        switch (lottery) {
-            // Fire
-            // Computer breakdown
-            
+        switch (lottery) 
+        {
+            case 1:
+                // Computer breakdown   
+                BreakRandomComputer();
+                ComputerAudio();
+                break;
+            case 2:
+                // Engine breakdown
+                BreakRandomEngine();
+                EngineAudio();
+                break;
             default:
+                // Fire
                 world.StartFireAtRandomLocation();
                 FireAudio();
                 break;
         }
         
-        
     }
 
-    private void FireAudio() {
+    private void BreakRandomComputer()
+    {
+        if ( world.computers != null && world.computers.Count != 0 ) {
+            world.computers[Random.Range(0, world.computers.Count)].ChaosInteract();
+        }
+    }
+
+    private void BreakRandomEngine() 
+    {
+        if ( world.engines != null && world.engines.Count != 0 ) {
+            world.engines[Random.Range(0, world.engines.Count)].ChaosInteract();
+        }
+    }
+
+
+    private void FireAudio() 
+    {
         audioSource.clip = textToSpeechClips[0];
+        audioSource.Play();
+    }
+
+    private void ComputerAudio() 
+    {
+        audioSource.clip = textToSpeechClips[1];
+        audioSource.Play();
+    }
+
+    private void EngineAudio() 
+    {
+        audioSource.clip = textToSpeechClips[2];
         audioSource.Play();
     }
 }

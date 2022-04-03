@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class EngineTask : Task
 {
+
+    public World world;
+    
+    public void Start()
+    {
+        world.engines.Add(this);
+    }
+
     private void Break() 
     {
         healthy = false;

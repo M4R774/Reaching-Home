@@ -26,6 +26,10 @@ public class World : ScriptableObject
     public List<Fire> allFires;
     public List<Fire> activeFires;
 
+    public List<EngineTask> engines;
+
+    public List<ComputerTask> computers;
+
     public void InitMaps(Tilemap groundMap, Tilemap terrainMap, Tilemap objectMap, Tilemap fireMap)
     {
         this.groundMap = groundMap;
@@ -67,6 +71,14 @@ public class World : ScriptableObject
                 }
             }
         }
+    }
+
+    public void InitEngines() {
+        engines = new List<EngineTask>();
+    }
+
+    public void InitComputers() {
+        computers = new List<ComputerTask>();
     }
 
     public void StartFireAtRandomLocation()

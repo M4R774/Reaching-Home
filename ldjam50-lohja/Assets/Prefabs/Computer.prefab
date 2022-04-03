@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskList: {fileID: 11400000, guid: 4f369fba515488d4ea13e3523ebe1a56, type: 2}
   healthy: 1
+  world: {fileID: 11400000, guid: f8dd103f962130848b800e51922c4147, type: 2}
 --- !u!95 &2577336128145276826
 Animator:
   serializedVersion: 3
