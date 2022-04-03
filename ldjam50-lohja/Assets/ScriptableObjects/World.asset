@@ -21,6 +21,15 @@ MonoBehaviour:
   terrainMap: {fileID: 0}
   objectMap: {fileID: 0}
   fireMap: {fileID: 0}
-  fireTileSmall: {fileID: 11400000, guid: cda33b64a7c533148bab9d7a882c5fc7, type: 2}
-  fireTileMedium: {fileID: 11400000, guid: 12d0b266d3d367f49bfe3f4978117ca3, type: 2}
-  fireTileBig: {fileID: 11400000, guid: 8fe27662b3fdfaf4a8157875cf400a02, type: 2}
+  fireTileSmall:
+  - {fileID: 11400000, guid: cda33b64a7c533148bab9d7a882c5fc7, type: 2}
+  - {fileID: 11400000, guid: e0b438d3aee671f40a392c6768f386f8, type: 2}
+  - {fileID: 11400000, guid: 5d411fd2ee6f5f946bcb294d9dc3767d, type: 2}
+  fireTileMedium:
+  - {fileID: 11400000, guid: 12d0b266d3d367f49bfe3f4978117ca3, type: 2}
+  - {fileID: 11400000, guid: d7b0b1b7a91a7454da97f154759565f9, type: 2}
+  - {fileID: 11400000, guid: 735862dbe1dc3cb40a9af2656fa10d17, type: 2}
+  fireTileBig:
+  - {fileID: 11400000, guid: 8fe27662b3fdfaf4a8157875cf400a02, type: 2}
+  - {fileID: 11400000, guid: 5234373328c31d748ba038c72021a27a, type: 2}
+  - {fileID: 11400000, guid: e64555fa134012a479ad0a296d449c52, type: 2}

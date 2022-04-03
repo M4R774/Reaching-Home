@@ -18,9 +18,9 @@ public class World : ScriptableObject
     public Tilemap objectMap;
     public Tilemap fireMap;
 
-    public TileBase fireTileSmall;
-    public TileBase fireTileMedium;
-    public TileBase fireTileBig;
+    public List<TileBase> fireTileSmall;
+    public List<TileBase> fireTileMedium;
+    public List<TileBase> fireTileBig;
 
     public Fire[,] fires;
     public List<Fire> allFires;
@@ -115,10 +115,13 @@ public class World : ScriptableObject
         {
             for (int x = Mathf.RoundToInt(bounds.min.x) - groundOffSet.x; x < Mathf.RoundToInt(bounds.max.x) - groundOffSet.x; x++)
             {
-                Fire fire = fires[y, x];
-                if (fire != null && fire.active)
+                if (y >= 0 && y < fires.GetLength(0) && x >= 0 && x < fires.GetLength(1))
                 {
-                    firesCollided.Add(fire);
+                    Fire fire = fires[y, x];
+                    if (fire != null && fire.active)
+                    {
+                        firesCollided.Add(fire);
+                    }
                 }
             }
         }
