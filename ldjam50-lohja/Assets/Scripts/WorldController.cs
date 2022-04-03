@@ -54,7 +54,6 @@ public class WorldController : MonoBehaviour
 
         if (eventTimer.isFinished)
         {
-            Debug.Log("event timer is finished");
             TickEvents();
             eventTimer.StartTimer();
         }
@@ -62,7 +61,7 @@ public class WorldController : MonoBehaviour
 
     void TickEvents()
     {
-        int lottery = Random.Range(1, 3);
+        int lottery = Random.Range(1, 4);
         switch (lottery) 
         {
             case 1:
@@ -75,10 +74,12 @@ public class WorldController : MonoBehaviour
                 BreakRandomEngine();
                 EngineAudio();
                 break;
-            default:
+            case 3:
                 // Fire
                 world.StartFireAtRandomLocation();
                 FireAudio();
+                break;
+            default:
                 break;
         }
         
