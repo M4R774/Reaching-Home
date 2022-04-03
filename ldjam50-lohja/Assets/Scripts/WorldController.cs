@@ -6,10 +6,9 @@ using UnityEditor;
 
 public class WorldController : MonoBehaviour
 {
+    [Header("References")]
     public World world;
     public GameObject player;
-    public float eventTickDurationOnStart = 10.0f;
-
     public Tilemap groundMap;
     public Tilemap terrainMap;
     public Tilemap objectMap;
@@ -17,8 +16,14 @@ public class WorldController : MonoBehaviour
 
     public List<AudioClip> textToSpeechClips;
 
+    [Header("Ticks")]
+    public float eventTickSpeed = 10.0f;
+    public float fireTickSpeed = 0.5f;
+    public float damageTickSpeed = 1.0f;
+
     private Timer fireTimer;
     private Timer eventTimer;
+    private Timer damageTimer;
     private AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -29,13 +34,20 @@ public class WorldController : MonoBehaviour
         world.InitFires();
         world.InitEngines();
         world.InitComputers();
-        fireTimer = gameObject.AddComponent<Timer>();
-        fireTimer.duration = 0.5f;
-        fireTimer.StartTimer();
+        world.damage = 0;
 
+        fireTimer = gameObject.AddComponent<Timer>();
+        InitTimer(fireTimer, fireTickSpeed);
         eventTimer = gameObject.AddComponent<Timer>();
-        eventTimer.duration = eventTickDurationOnStart;
-        eventTimer.StartTimer();
+        InitTimer(eventTimer, eventTickSpeed);
+        damageTimer = gameObject.AddComponent<Timer>();
+        InitTimer(damageTimer, damageTickSpeed);
+    }
+
+    private void InitTimer(Timer timer, float duration)
+    {
+        timer.duration = duration;
+        timer.StartTimer();
     }
 
     private void Start()
@@ -56,6 +68,12 @@ public class WorldController : MonoBehaviour
         {
             TickEvents();
             eventTimer.StartTimer();
+        }
+
+        if (damageTimer.isFinished)
+        {
+            world.TickDamage();
+            damageTimer.StartTimer();
         }
     }
 
