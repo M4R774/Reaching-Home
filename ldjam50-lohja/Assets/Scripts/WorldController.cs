@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class WorldController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class WorldController : MonoBehaviour
     public Tilemap terrainMap;
     public Tilemap objectMap;
     public Tilemap fireMap;
+    public GameObject globalLight;
 
     public List<AudioClip> textToSpeechClips;
 
@@ -25,6 +27,8 @@ public class WorldController : MonoBehaviour
     private Timer eventTimer;
     private Timer damageTimer;
     private AudioSource audioSource;
+
+    private bool gracePeriod = true;
 
     // Start is called before the first frame update
     void Awake()
@@ -66,7 +70,19 @@ public class WorldController : MonoBehaviour
 
         if (eventTimer.isFinished)
         {
-            TickEvents();
+            if (!gracePeriod)
+            {
+                TickEvents();
+            }
+            else
+            {
+                // TODO: Use coroutine instead of hard cut
+                audioSource.clip = textToSpeechClips[3];
+                audioSource.Play();
+                globalLight.GetComponent<Light2D>().intensity = 0.04f;
+                gracePeriod = false;
+            }
+                
             eventTimer.StartTimer();
         }
 
