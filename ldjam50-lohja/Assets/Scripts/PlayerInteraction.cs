@@ -22,7 +22,8 @@ public class PlayerInteraction : MonoBehaviour
 
     public void PlayerInteract(InputAction.CallbackContext context) {
         if ( !(collidersNearby.Count == 0) ) {
-            GetNearestCollider().gameObject.GetComponent<ITask>().Interact();
+            Debug.Log(collidersNearby.Count);
+            GetNearestCollider().gameObject.GetComponent<Task>().Interact();
         }
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Task : MonoBehaviour, ITask
+public abstract class Task : MonoBehaviour
 {
     public TaskList taskList;
     public bool healthy = true;
@@ -14,23 +14,17 @@ public class Task : MonoBehaviour, ITask
 
     public Vector3 GetPosition()
     {
-        throw new System.NotImplementedException();
+        return transform.position;
     }
 
     public float GetUrgencyLevel()
     {
-        throw new System.NotImplementedException();
+        return 1.0f;
     }
 
-    public void Interact()
-    {
-        throw new System.NotImplementedException();
-    }
+    public abstract void Interact();
 
-    public void ChaosInteract()
-    {
-        throw new System.NotImplementedException();
-    }
+    public abstract void ChaosInteract();
 
     private void OnDestroy()
     {

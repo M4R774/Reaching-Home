@@ -61,7 +61,8 @@ public class WorldController : MonoBehaviour
         int lottery = Random.Range(1, 3);
         switch (lottery) {
             // Fire
-            // Computer breakdown    
+            // Computer breakdown
+            
             default:
                 world.StartFireAtRandomLocation();
                 FireAudio();

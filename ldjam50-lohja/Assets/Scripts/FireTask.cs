@@ -14,4 +14,14 @@ public class FireTask : Task
             Destroy(gameObject, 1f);
         }
     }
+
+    public override void ChaosInteract()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Interact()
+    {
+        throw new System.NotImplementedException();
+    }
 }

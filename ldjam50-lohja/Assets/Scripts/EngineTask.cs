@@ -21,27 +21,17 @@ public class EngineTask : Task
         return healthy;
     }
 
-    new public Vector3 GetPosition() 
-    {
-        return transform.position;
-    }
-
-    new public float GetUrgencyLevel()
-    {
-        throw new System.NotImplementedException();
-    }
-
 
     // This interaction changes the sprite from 'broken' to 'healthy'
     // and is called only by the player
-    new public void Interact() 
+    override public void Interact() 
     {
         Fix();
     }
 
     // This interaction changes the sprite from 'healthy' to 'broken'
     // and is called only by the game controller
-    new public void ChaosInteract() 
+    override public void ChaosInteract() 
     {
         Break();
     }
