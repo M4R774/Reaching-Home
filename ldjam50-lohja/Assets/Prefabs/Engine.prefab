@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskList: {fileID: 11400000, guid: 4f369fba515488d4ea13e3523ebe1a56, type: 2}
   healthy: 1
+  interactable: 1
   world: {fileID: 11400000, guid: f8dd103f962130848b800e51922c4147, type: 2}
 --- !u!61 &8902795547033868273
 BoxCollider2D:
@@ -74,7 +75,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 6, y: 3}
   m_EdgeRadius: 0
 --- !u!212 &-4098448077615258457
 SpriteRenderer:
