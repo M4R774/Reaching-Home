@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ComputerTask : Task
 {
-
-    bool healthy = true;
-
     private void Break() 
     {
         healthy = false;

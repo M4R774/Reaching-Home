@@ -10,6 +10,9 @@ public class World : ScriptableObject
     public int groundHeight;
     public Vector3Int groundOffSet;
 
+    public GameObject fireTask;
+    public GameObject player;
+
     public Tilemap groundMap;
     public Tilemap terrainMap;
     public Tilemap objectMap;
@@ -69,12 +72,18 @@ public class World : ScriptableObject
     public void StartFireAtRandomLocation()
     {
         Fire fire = allFires[Random.Range(0, allFires.Count)];
+        GameObject newFireTask = Instantiate(fireTask);
+        newFireTask.transform.position = fire.GetWorldPosition();
+        newFireTask.GetComponent<FireTask>().player = player;
+        newFireTask.GetComponent<FireTask>().healthy = false;
         fire.StartFire();
     }
 
     public void StartFire(Vector3Int position)
     {
         Fire fire = fires[position.y, position.x];
+        GameObject newFireTask = Instantiate(fireTask);
+        newFireTask.transform.position = fire.GetWorldPosition();
         fire.StartFire();
     }
 

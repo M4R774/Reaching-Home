@@ -15,6 +15,8 @@ MonoBehaviour:
   groundWidth: 59
   groundHeight: 56
   groundOffSet: {x: -25, y: -9, z: 0}
+  fireTask: {fileID: 4863077808984765235, guid: 0b15f845fe998f8479331868dadd83e2, type: 3}
+  player: {fileID: 0}
   groundMap: {fileID: 0}
   terrainMap: {fileID: 0}
   objectMap: {fileID: 0}

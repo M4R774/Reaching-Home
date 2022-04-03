@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,35 @@ using UnityEngine;
 [CreateAssetMenu]
 public class TaskList : ScriptableObject
 {
-    public List<GameObject> tasks;
+    private List<GameObject> tasks;
 
-    public List<GameObject> GetTasksInUrgencyOrder()
+    public List<GameObject> GetTasks()
     {
         // TODO
-        return null;
+        List<GameObject> unhealthyTasks = new List<GameObject>();
+        unhealthyTasks.Clear();
+        foreach(GameObject task in tasks)
+        {
+            if (task.GetComponent<Task>().healthy == false)
+            {
+                unhealthyTasks.Add(task);
+            }
+        }
+        return unhealthyTasks;
+    }
+
+    internal void Reset()
+    {
+        tasks.Clear();
+    }
+
+    public void AddTask(GameObject task)
+    {
+        tasks.Add(task);
+    }
+
+    public void RemoveTask(GameObject task)
+    {
+        tasks.Remove(task);
     }
 }

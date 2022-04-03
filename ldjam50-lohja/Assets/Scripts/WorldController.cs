@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class WorldController : MonoBehaviour
 {
     public World world;
-
+    public GameObject player;
     public float eventTickDuration = 10.0f;
 
     public Tilemap groundMap;
@@ -33,6 +33,11 @@ public class WorldController : MonoBehaviour
         eventTimer = gameObject.AddComponent<Timer>();
         eventTimer.duration = eventTickDuration;
         eventTimer.StartTimer();
+    }
+
+    private void Start()
+    {
+        world.player = player;
     }
 
     // Update is called once per frame

@@ -25,7 +25,7 @@ public class PointerToTask : MonoBehaviour
         lr = GetComponent<LineRenderer>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         // DrawDebugLinesAndEllipse();
 
@@ -35,7 +35,7 @@ public class PointerToTask : MonoBehaviour
         }
         arrows.Clear();
 
-        foreach (GameObject task in taskList.tasks)
+        foreach (GameObject task in taskList.GetTasks())
         {
             DrawTaskArrow(task);
         }
@@ -46,7 +46,7 @@ public class PointerToTask : MonoBehaviour
         DrawDebugEllipse();
 
         int counter = 0;
-        foreach (GameObject task in taskList.tasks)
+        foreach (GameObject task in taskList.GetTasks())
         {
             DrawDebugLineToTask(task, counter);
             counter += 2;

@@ -5,10 +5,11 @@ using UnityEngine;
 public class Task : MonoBehaviour, ITask
 {
     public TaskList taskList;
+    public bool healthy = true;
 
     public void Start()
     {
-        taskList.tasks.Add(this.gameObject);
+        taskList.AddTask(this.gameObject);
     }
 
     public Vector3 GetPosition()
@@ -31,4 +32,8 @@ public class Task : MonoBehaviour, ITask
         throw new System.NotImplementedException();
     }
 
+    private void OnDestroy()
+    {
+        taskList.RemoveTask(gameObject);
+    }
 }

@@ -9,6 +9,6 @@ public class TaskListManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        taskList.tasks.Clear();
+        taskList.Reset();
     }
 }
