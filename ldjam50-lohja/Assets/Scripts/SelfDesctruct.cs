@@ -18,7 +18,12 @@ public class SelfDesctruct : MonoBehaviour
 
     private void FixedUpdate()
     {
-        light2d.intensity = Mathf.Clamp(light2d.intensity + Random.Range(-0.03f, 0.03f), 0.7f, 0.9f);
+        currentIntensity = light2d.intensity;
+        FlickerLight(currentIntensity);
+    }
+
+    private void FlickerLight(Light2D currentIntensity) {
+        light2d.intensity = Mathf.Clamp(currentIntensity + Random.Range(-0.03f, 0.03f), 0.7f, 0.9f);
         float x_flicker = Mathf.Clamp(
                 (transform.position.x + Random.Range(-.03f, .03f)), 
                 originalPosition.x - .1f, 
