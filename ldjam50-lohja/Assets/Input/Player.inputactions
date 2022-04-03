@@ -16,12 +16,12 @@
                 },
                 {
                     "name": "Interaction",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "30d74de5-1f90-4741-af08-3c089c1286ff",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Nozzle",

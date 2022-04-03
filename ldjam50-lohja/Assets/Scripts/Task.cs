@@ -6,6 +6,7 @@ public abstract class Task : MonoBehaviour
 {
     public TaskList taskList;
     public bool healthy = true;
+    public bool interactable = true;
 
     public void Start()
     {

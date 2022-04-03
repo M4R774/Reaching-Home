@@ -5117,6 +5117,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9037cb78-a72f-448b-9f4e-275703f3ca7f
     m_ActionName: Player Movement/Nozzle[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0df988f1-69da-4aca-a426-bebf6cabd25d
+    m_ActionName: Player Movement/Escape[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player Movement
@@ -5331,6 +5335,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a64d6cf1beecc04ea6538b067127f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interact:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e6884c5d-bf93-4f30-9cbe-f6f97fa2cb57
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   collidersNearby: []
 --- !u!114 &5992872615601466066
 MonoBehaviour:

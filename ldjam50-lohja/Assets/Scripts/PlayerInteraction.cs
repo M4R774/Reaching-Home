@@ -21,12 +21,14 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     public void PlayerInteract(InputAction.CallbackContext context) {
-        if ( !(collidersNearby.Count == 0) ) {
-            Debug.Log(collidersNearby.Count);
-            GetNearestCollider().gameObject.GetComponent<Task>().Interact();
+        if ( !(collidersNearby.Count == 0) && context.started) {
+            Task task = GetNearestCollider().gameObject.GetComponent<Task>();
+            if (task.interactable)
+            {
+                task.Interact();
+            }
         }
     }
-
 
     private Collider2D GetNearestCollider() {
 

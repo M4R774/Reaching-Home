@@ -7,6 +7,11 @@ using UnityEngine;
 public class Door : Task
 {
     public bool opened = false;
+    public bool processing = false;
+
+    private void Awake() {
+        Close();
+    }
     private void Open()
     {
         opened = true;
