@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class SelfDesctruct : MonoBehaviour
+public class SelfDestruct : MonoBehaviour
 {
     public GameObject player;
     public Fire fire;
@@ -18,11 +18,11 @@ public class SelfDesctruct : MonoBehaviour
 
     private void FixedUpdate()
     {
-        currentIntensity = light2d.intensity;
+        float currentIntensity = light2d.intensity;
         FlickerLight(currentIntensity);
     }
 
-    private void FlickerLight(Light2D currentIntensity) {
+    private void FlickerLight(float currentIntensity) {
         light2d.intensity = Mathf.Clamp(currentIntensity + Random.Range(-0.03f, 0.03f), 0.7f, 0.9f);
         float x_flicker = Mathf.Clamp(
                 (transform.position.x + Random.Range(-.03f, .03f)), 

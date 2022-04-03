@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireLightning : MonoBehaviour
+public class FireLighting : MonoBehaviour
 {
     public World world;
     public GameObject FireLight;
@@ -38,9 +38,9 @@ public class FireLightning : MonoBehaviour
                 {
                     GameObject newFireLight = Instantiate(FireLight, transform);
                     newFireLight.transform.position = world.activeFires[i].GetWorldPosition() + new Vector3(.5f, .5f, 0);
-                    newFireLight.GetComponent<SelfDesctruct>().player = player;
-                    newFireLight.GetComponent<SelfDesctruct>().fire = world.activeFires[i];
-                    newFireLight.GetComponent<SelfDesctruct>().originalPosition = newFireLight.transform.position;
+                    newFireLight.GetComponent<SelfDestruct>().player = player;
+                    newFireLight.GetComponent<SelfDestruct>().fire = world.activeFires[i];
+                    newFireLight.GetComponent<SelfDestruct>().originalPosition = newFireLight.transform.position;
                 }
                 yield return new WaitForSeconds(.0012f); // 0.032 = 30fps
             }

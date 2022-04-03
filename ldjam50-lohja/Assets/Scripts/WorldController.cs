@@ -7,7 +7,7 @@ public class WorldController : MonoBehaviour
 {
     public World world;
     public GameObject player;
-    public float eventTickDuration = 10.0f;
+    public float eventTickDurationOnStart = 10.0f;
 
     public Tilemap groundMap;
     public Tilemap terrainMap;
@@ -31,7 +31,7 @@ public class WorldController : MonoBehaviour
         fireTimer.StartTimer();
 
         eventTimer = gameObject.AddComponent<Timer>();
-        eventTimer.duration = eventTickDuration;
+        eventTimer.duration = eventTickDurationOnStart;
         eventTimer.StartTimer();
     }
 
@@ -58,7 +58,20 @@ public class WorldController : MonoBehaviour
 
     void TickEvents()
     {
-        world.StartFireAtRandomLocation();
+        int lottery = Random.Range(1, 3);
+        switch (lottery) {
+            // Fire
+            // Computer breakdown    
+            default:
+                world.StartFireAtRandomLocation();
+                FireAudio();
+                break;
+        }
+        
+        
+    }
+
+    private void FireAudio() {
         audioSource.clip = textToSpeechClips[0];
         audioSource.Play();
     }
