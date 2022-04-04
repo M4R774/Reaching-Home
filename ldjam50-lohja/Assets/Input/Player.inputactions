@@ -156,7 +156,29 @@
                 {
                     "name": "",
                     "id": "d0cb941a-f12a-446e-8e8a-64b32d5b9d51",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9732bd14-2c16-4c34-a3e3-0ded57f2d649",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "262f5400-9fb3-4acc-bff2-e3abf80b11c3",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -167,10 +189,21 @@
                 {
                     "name": "",
                     "id": "5bfbbf91-11c7-483a-91bb-93bc7e24f9c9",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "Nozzle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b6f6900-cefb-4874-8ff7-384d7632aac1",
+                    "path": "<Keyboard>/numpad0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
                     "action": "Nozzle",
                     "isComposite": false,
                     "isPartOfComposite": false
