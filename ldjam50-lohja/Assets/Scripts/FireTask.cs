@@ -24,4 +24,9 @@ public class FireTask : Task
     {
         throw new System.NotImplementedException();
     }
+
+    public override Color GetTaskColor()
+    {
+        return Color.red;
+    }
 }

@@ -38,9 +38,13 @@ public class Door : Task
        ToggleHitbox();
     }
 
-
     override public void ChaosInteract()
     {
         throw new System.NotImplementedException();
+    }
+
+    public override Color GetTaskColor()
+    {
+        return Color.white;
     }
 }

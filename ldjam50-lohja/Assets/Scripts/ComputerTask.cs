@@ -49,4 +49,8 @@ public class ComputerTask : Task
         Break();
     }
 
+    public override Color GetTaskColor()
+    {
+        return Color.yellow;
+    }
 }

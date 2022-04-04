@@ -34,4 +34,9 @@ public class LifeSupportTask : Task
         healthy = false;
         omaValo.color = Color.red;
     }
+
+    public override Color GetTaskColor()
+    {
+        return Color.green;
+    }
 }

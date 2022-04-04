@@ -49,4 +49,8 @@ public class EngineTask : Task
         Break();
     }
 
+    public override Color GetTaskColor()
+    {
+        return Color.blue;
+    }
 }

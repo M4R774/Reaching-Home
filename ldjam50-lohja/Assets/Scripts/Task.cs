@@ -27,6 +27,8 @@ public abstract class Task : MonoBehaviour
 
     public abstract void ChaosInteract();
 
+    public abstract Color GetTaskColor();
+
     private void OnDestroy()
     {
         taskList.RemoveTask(gameObject);

@@ -109,6 +109,7 @@ public class PointerToTask : MonoBehaviour
         float angle = Mathf.Atan2(task.transform.position.y - arrow.transform.position.y, task.transform.position.x - arrow.transform.position.x) * Mathf.Rad2Deg - 90;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
         arrow.transform.rotation = targetRotation; // Quaternion.RotateTowards(arrow.transform.rotation, targetRotation, 1 * Time.deltaTime);
+        arrow.GetComponent<SpriteRenderer>().color = task.GetComponent<Task>().GetTaskColor();
     }
 
     private Vector2[] CalculateIntersectionPoint(Rect rect, Vector2 pt1, Vector2 pt2, bool segment_only)
