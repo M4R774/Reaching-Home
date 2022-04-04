@@ -17,7 +17,7 @@ This is fine ':)
 
 Life Supoort operating within nominal values. 
 
-- **More information**
+**More information**
 - **Status**	Released
 - **Platforms**	HTML5
 - **Genre**	Action, Survival
