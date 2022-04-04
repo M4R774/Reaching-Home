@@ -86,6 +86,6 @@ public class CountdownTimer : MonoBehaviour
         int minutes = Mathf.FloorToInt(timeToDisplay / 60);
         int seconds = Mathf.FloorToInt(timeToDisplay % 60);
         int milliseconds = Mathf.FloorToInt(timeToDisplay % 1f * 100);
-        countdownText.text = $"{minutes:00}:{seconds:00}:{milliseconds:00}";
+        countdownText.text = $"ETA:{minutes:00}:{seconds:00}:{milliseconds:00}";
     }
 }

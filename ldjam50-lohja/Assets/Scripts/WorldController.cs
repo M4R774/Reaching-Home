@@ -141,14 +141,39 @@ public class WorldController : MonoBehaviour
     private void BreakRandomComputer()
     {
         if ( world.computers != null && world.computers.Count != 0 ) {
-            world.computers[Random.Range(0, world.computers.Count)].ChaosInteract();
+            
+            for (int i = 0; i < 5; i++)
+            {
+                int indexOfTaskToBreak = Random.Range(0, world.computers.Count);
+                if (!world.computers[indexOfTaskToBreak].healthy)
+                {
+                    continue;
+                }
+                else
+                {
+                    world.computers[indexOfTaskToBreak].ChaosInteract();
+                    break;
+                }
+            } 
         }
     }
 
     private void BreakRandomEngine() 
     {
         if ( world.engines != null && world.engines.Count != 0 ) {
-            world.engines[Random.Range(0, world.engines.Count)].ChaosInteract();
+            for (int i = 0; i < 5; i++)
+            {
+                int indexOfTaskToBreak = Random.Range(0, world.engines.Count);
+                if (!world.engines[indexOfTaskToBreak].healthy)
+                {
+                    continue;
+                }
+                else
+                {
+                    world.engines[indexOfTaskToBreak].ChaosInteract();
+                    break;
+                }
+            }
         }
     }
 
