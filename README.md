@@ -17,10 +17,10 @@ This is fine ':)
 
 Life Supoort operating within nominal values. 
 
-**More information**
-**Status**	Released
-**Platforms**	HTML5
-**Genre**	Action, Survival
-**Made with**	Unity, Audacity, Paint.net
-**Tags**	2D, Difficult, Ludum Dare, ludum-dare-50, Pixel Art, Sci-fi, Short, Space, Top-Down
-**Average session**	A few minutes
+- **More information**
+- **Status**	Released
+- **Platforms**	HTML5
+- **Genre**	Action, Survival
+- **Made with**	Unity, Audacity, Paint.net
+- **Tags**	2D, Difficult, Ludum Dare, ludum-dare-50, Pixel Art, Sci-fi, Short, Space, Top-Down
+- **Average session**	A few minutes
