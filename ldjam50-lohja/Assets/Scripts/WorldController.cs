@@ -96,6 +96,13 @@ public class WorldController : MonoBehaviour
 
     void TickEvents()
     {
+        if(world.activeFires.Count == 0)
+        {
+            world.StartFireAtRandomLocation();
+            FireAudio();
+            return;
+        }
+
         int lottery = Random.Range(1, 5);
         switch (lottery) 
         {
