@@ -8,7 +8,6 @@ public class EngineTask : Task
 
     public World world;
     
-    private float originalIntensity;
     public void Start()
     {
         world.engines.Add(this);
@@ -18,7 +17,6 @@ public class EngineTask : Task
     {
         healthy = false;
         this.GetComponent<Animator>().SetTrigger("ChaosBreaks");
-        originalIntensity = this.GetComponentInChildren<Light2D>().intensity;
         this.GetComponentInChildren<Light2D>().intensity = 0;
     }
 
@@ -26,7 +24,7 @@ public class EngineTask : Task
     {
         healthy = true;
         this.GetComponent<Animator>().SetTrigger("PlayerFixes");
-        this.GetComponentInChildren<Light2D>().intensity = originalIntensity;
+        this.GetComponentInChildren<Light2D>().intensity = 0.5f;
     }
 
     public bool IsBroken() 
