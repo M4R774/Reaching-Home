@@ -8,7 +8,7 @@ public class FireNozzle : MonoBehaviour
 
     public float extinguishForce = 0.2f;
 
-    private Collider2D collider;
+    private Collider2D myCollider;
 
     private List<Fire> collidedFires;
     private Timer extinguishTimer;
@@ -17,7 +17,7 @@ public class FireNozzle : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        collider = GetComponent<Collider2D>();
+        myCollider = GetComponent<Collider2D>();
         extinguishTimer = gameObject.AddComponent<Timer>();
         extinguishTimer.duration = 0.5f;
         extinguishTimer.StartTimer();
@@ -56,16 +56,16 @@ public class FireNozzle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collidedFires = world.GetAllFiresWithinBounds(collider.bounds);
+        collidedFires = world.GetAllFiresWithinBounds(myCollider.bounds);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        collidedFires = world.GetAllFiresWithinBounds(collider.bounds);
+        collidedFires = world.GetAllFiresWithinBounds(myCollider.bounds);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collidedFires = world.GetAllFiresWithinBounds(collider.bounds);
+        collidedFires = world.GetAllFiresWithinBounds(myCollider.bounds);
     }
 }

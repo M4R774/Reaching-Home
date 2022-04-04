@@ -1,25 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class ComputerTask : Task
 {
     public World world;
+    public Light2D lightSource;
 
     public void Start()
     {
+        lightSource = gameObject.GetComponent<Light2D>();
         world.computers.Add(this);
     }
     
     private void Break() 
     {
         healthy = false;
+        lightSource.color = Color.red;
         this.GetComponent<Animator>().SetTrigger("ChaosBreaks");
     }
 
     private void Fix() 
     {
         healthy = true;
+        lightSource.color = Color.green;
         this.GetComponent<Animator>().SetTrigger("PlayerFixes");
     }
 

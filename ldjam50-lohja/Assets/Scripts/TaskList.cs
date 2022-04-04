@@ -10,7 +10,6 @@ public class TaskList : ScriptableObject
 
     public List<GameObject> GetTasks()
     {
-        // TODO
         List<GameObject> unhealthyTasks = new List<GameObject>();
         unhealthyTasks.Clear();
         foreach(GameObject task in tasks)

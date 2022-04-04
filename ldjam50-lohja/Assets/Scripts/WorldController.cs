@@ -15,6 +15,7 @@ public class WorldController : MonoBehaviour
     public Tilemap objectMap;
     public Tilemap fireMap;
     public GameObject globalLight;
+    public GameObject LifeSupportMetaTask;
 
     public List<AudioClip> textToSpeechClips;
 
@@ -95,7 +96,7 @@ public class WorldController : MonoBehaviour
 
     void TickEvents()
     {
-        int lottery = Random.Range(1, 4);
+        int lottery = Random.Range(1, 5);
         switch (lottery) 
         {
             case 1:
@@ -113,10 +114,21 @@ public class WorldController : MonoBehaviour
                 world.StartFireAtRandomLocation();
                 FireAudio();
                 break;
+            case 4:
+                // Life support
+                BreakLifeSupport();
+                break;
             default:
                 break;
         }
         
+    }
+
+    private void BreakLifeSupport()
+    {
+        LifeSupportMetaTask.GetComponent<LifeSupportMetaTask>().BreakALLLifeSupportModules();
+        audioSource.clip = textToSpeechClips[4];
+        audioSource.Play();
     }
 
     private void BreakRandomComputer()
