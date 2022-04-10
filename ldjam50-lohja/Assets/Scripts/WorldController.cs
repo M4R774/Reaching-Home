@@ -30,6 +30,7 @@ public class WorldController : MonoBehaviour
     private AudioSource audioSource;
 
     private bool gracePeriod = true;
+    private int numberOfTimesPlayrHasExtinguishedAllFires = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -98,7 +99,12 @@ public class WorldController : MonoBehaviour
     {
         if(world.activeFires.Count == 0)
         {
-            world.StartFireAtRandomLocation();
+            numberOfTimesPlayrHasExtinguishedAllFires++;
+            for(int i = 0; i < numberOfTimesPlayrHasExtinguishedAllFires; i++)
+            {
+                world.StartFireAtRandomLocation();
+            }
+            
             FireAudio();
             return;
         }
